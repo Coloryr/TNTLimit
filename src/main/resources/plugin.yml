@@ -1,0 +1,9 @@
+name: TNTLimit
+main: coloryr.tntlimit.side.sideBukkit.SideBukkitMain
+author: Color_yr
+version: 1.0.0
+
+commands:
+  tnt:
+    description: 插件主指令
+    usage: §4[TNTLimit]§6/tnt help来查看帮助

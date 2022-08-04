@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+version = "1.0.0"
+
+repositories {
+    mavenCentral()
+
+    maven {
+        name 'Spigot'
+        url 'https://hub.spigotmc.org/nexus/content/groups/public'
+    }
+    maven {
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
+    maven {
+        name 'velocity'
+        url 'https://nexus.velocitypowered.com/repository/maven-public/'
+    }
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation "org.apache.commons:commons-dbcp2:2.9.0"
+
+    compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
+    compileOnly 'net.md-5:bungeecord-api:1.16-R0.5-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.10.9'
+    compileOnly "com.github.MilkBowl:VaultAPI:1.7"
+    compileOnly 'com.velocitypowered:velocity-api:1.1.3'
+
+    compile fileTree(dir:'lib',include:['mysql-connector-java-8.0.24.jar'])
+    compileOnly fileTree(dir:'lib',include:['*.jar'])
+
+    annotationProcessor 'com.velocitypowered:velocity-api:3.0.0'
+
+}
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
