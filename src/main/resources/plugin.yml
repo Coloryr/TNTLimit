@@ -2,6 +2,7 @@ name: TNTLimit
 main: coloryr.tntlimit.side.sideBukkit.SideBukkitMain
 author: Color_yr
 version: 1.0.0
+api-version: 1.19
 
 commands:
   tnt:
